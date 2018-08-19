@@ -1,0 +1,924 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml2/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+  <title>How to QR</title>
+  <link rel="shortcut icon" href="https://rawgit.com/dw-hb/qr/guide/qr.ico" type="image/x-icon" />
+
+  <head>
+    <meta charset="utf-8">
+    <link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700|PT+Sans:400,400i,700,700i&amp;subset=latin-ext" rel="stylesheet">
+    <link href="https://rawgit.com/Hebgbs/plugthemes/master/fonts/MyraidPro.css" rel="stylesheet">
+	<link href="https://rawgit.com/dw-hb/global/css/hl_styles/default.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js">/* JQuery */</script>
+	<script src="https://rawgit.com/dw-hb/global/js/highlight.pack.js">/* HighlightJS */</script>
+	<script>hljs.initHighlightingOnLoad();</script>
+    <script type="text/javascript" src="https://rawgit.com/dw-hb/global/js/ddaccordion.js">
+    /***********************************************	
+     * Accordion Content script- (c) Dynamic Drive DHTML code library (www.dynamicdrive.com)
+     * Visit http://www.dynamicDrive.com for hundreds of DHTML scripts
+     * Please keep this notice intact
+     ***********************************************/
+    </script>
+    <script type="text/javascript">
+    ddaccordion.init({
+      headerclass: "section", //Shared CSS class name of headers group
+      contentclass: "ins", //Shared CSS class name of contents group
+      revealtype: "click", //Reveal content when user clicks or onmouseover the header? Valid value: "click", "clickgo", or "mouseover"
+      mouseoverdelay: 200, //if revealtype="mouseover", set delay in milliseconds before header expands onMouseover
+      collapseprev: true, //Collapse previous content (so only one open at any time)? true/false 
+      defaultexpanded: [], //index of content(s) open by default [index1, index2, etc] [] denotes no content
+      onemustopen: true, //Specify whether at least one header should be open always (so never all headers closed)
+      animatedefault: false, //Should contents open by default be animated into view?
+      persiststate: true, //persist state of opened contents within browser session?
+      toggleclass: ["", ""], //Two CSS classes to be applied to the header when it's collapsed and expanded, respectively ["class1", "class2"]
+      togglehtml: ["suffix", "<img src='plus.gif' class='statusicon' />", "<img src='minus.gif' class='statusicon' />"], //Additional HTML added to the header when it's collapsed and expanded, respectively  ["position", "html1", "html2"] (see docs)
+      animatespeed: "fast", //speed of animation: integer in milliseconds (ie: 200), or keywords "fast", "normal", or "slow"
+      oninit: function(headers, expandedindices) { //custom code to run when headers have initalized
+        //do nothing
+      },
+      onopenclose: function(header, index, state, isuseractivated) { //custom code to run whenever a header is opened or closed
+        //do nothing
+      }
+    })
+    ddaccordion.init({
+      headerclass: "option", //Shared CSS class name of headers group
+      contentclass: "nestins", //Shared CSS class name of contents group
+      revealtype: "click", //Reveal content when user clicks or onmouseover the header? Valid value: "click", "clickgo", or "mouseover"
+      mouseoverdelay: 200, //if revealtype="mouseover", set delay in milliseconds before header expands onMouseover
+      collapseprev: false, //Collapse previous content (so only one open at any time)? true/false 
+      defaultexpanded: [], //index of content(s) open by default [index1, index2, etc] [] denotes no content
+      onemustopen: false, //Specify whether at least one header should be open always (so never all headers closed)
+      animatedefault: false, //Should contents open by default be animated into view?
+      persiststate: true, //persist state of opened contents within browser session?
+      toggleclass: ["", ""], //Two CSS classes to be applied to the header when it's collapsed and expanded, respectively ["class1", "class2"]
+      togglehtml: ["suffix", "<img src='plus.gif' class='statusicon' />", "<img src='minus.gif' class='statusicon' />"], //Additional HTML added to the header when it's collapsed and expanded, respectively  ["position", "html1", "html2"] (see docs)
+      animatespeed: "fast", //speed of animation: integer in milliseconds (ie: 200), or keywords "fast", "normal", or "slow"
+      oninit: function(headers, expandedindices) { //custom code to run when headers have initalized
+        //do nothing
+      },
+      onopenclose: function(header, index, state, isuseractivated) { //custom code to run whenever a header is opened or closed
+        //do nothing
+      }
+    })
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/@widgetbot/html-embed">
+    </script>
+    <script> const embed = document.getElementById('embed')
+    /*embed.on('signIn', data => {
+      console.log(`Guest signed in as ${data.name}`)
+      embed.emit('sendMessage', 'Hello world')
+    })*/
+  </script>
+    <style type="text/css">
+    /* Notepad++ doesn't know how to handle formatting here, so funny. -- Hebgbs */
+    :root {
+      --brh: 20px;
+    }
+
+    BODY {
+      background: url(https://rawgit.com/dw-hb/global/img/dandy.png) no-repeat fixed center/cover #151515;
+      color: #fff;
+      font-family: Myraid Pro, PT Sans, Ubuntu Sans, sans-serif;
+    }
+
+    CODE,
+    PRE,
+    TABLE.pre TD,
+    UL LI.pre {
+      font-family: Inconsolata, Consolas, Ubuntu Mono, monospace;
+    }
+
+    PRE {
+      margin: 0;
+      display: block;
+    }
+
+    P {
+      -webkit-margin-before: 0px;
+      -webkit-margin-after: 0px;
+      margin: 0;
+    }
+
+    TABLE.pre {
+      width: 100%;
+      border: 2px solid #777;
+      border-collapse: collapse;
+    }
+
+    TABLE.pre TH {
+      text-align: left;
+    }
+
+    TABLE.pre TH,
+    TABLE.pre TD {
+      border: 1px solid #777;
+    }
+
+    .section H2,
+    .option H3 {
+      margin: 0;
+      padding: 5px 0;
+    }
+
+    .body A:visited,
+    .msg A:visited {
+      color: #fff;
+    }
+
+    .inner {
+      background-color: rgba(0, 0, 0, 0.5);
+    }
+
+    .inner.body {
+      padding: 10px;
+    }
+
+    .inset {
+      padding: 20px;
+      margin: 20px 10px;
+      background-color: rgba(51, 51, 51, 0.5);
+      border: 2px solid #777;
+    }
+
+    .inset PRE {
+      line-height: 1.15;
+    }
+
+    PRE,
+    TABLE.pre {
+      background-color: transparent;
+    }
+
+    .body A {
+      color: white;
+      text-shadow: 0px 0px 6px #333,
+        0px 0px 6px #333;
+    }
+
+    .warn A {
+      color: #f22;
+      text-shadow: 0px 0px 6px #400505,
+        0px 0px 6px #400505;
+    }
+
+    .info A {
+      color: #22f;
+      text-shadow: 0px 0px 6px #050540,
+        0px 0px 6px #050540
+    }
+
+    .good A {
+      color: #2f2;
+      text-shadow: 0px 0px 6px #054005,
+        0px 0px 6px #054005;
+    }
+
+    .msg {
+      padding: 5px 10px;
+    }
+
+    .ctr {
+      text-align: center;
+    }
+
+    .msg H2,
+    UL,
+    OL {
+      margin: 0px;
+    }
+
+    .busy:not(.end),
+    .warn:not(.end),
+    .info:not(.end),
+    .good:not(.end) {
+      font-weight: bold;
+    }
+	
+	.end {
+	  font-weight: normal;
+	}
+
+    .busy {
+      background: linear-gradient(to bottom, rgba(64, 64, 5, 0.5), rgba(64, 64, 5, 0.5)),
+        url(https://rawgit.com/dw-hb/global/img/bdandy.png) no-repeat fixed center/cover #404005;
+      border-top: 2px solid #ff2;
+    }
+
+    .warn {
+      background: linear-gradient(to bottom, rgba(64, 5, 5, 0.5), rgba(64, 5, 5, 0.5)),
+        url(https://rawgit.com/dw-hb/global/img/wdandy.png) no-repeat fixed center/cover #400505;
+      border-top: 2px solid #f22;
+    }
+
+    .info {
+      background: linear-gradient(to bottom, rgba(5, 5, 64, 0.5), rgba(5, 5, 64, 0.5)),
+        url(https://rawgit.com/dw-hb/global/img/idandy.png) no-repeat fixed center/cover #050540;
+      border-top: 2px solid #22f;
+    }
+
+    .good {
+      background: linear-gradient(to bottom, rgba(5, 64, 5, 0.5), rgba(5, 64, 5, 0.5)),
+        url(https://rawgit.com/dw-hb/global/img/gdandy.png) no-repeat fixed center/cover #054005;
+      border-top: 2px solid #2f2;
+    }
+
+    DIV.msg:not(.bdr) {
+      border: none;
+    }
+
+    LI.success {
+      list-style-image: url("https://i.imgur.com/X8670Cs.png");
+    }
+
+    LI.failure {
+      list-style-image: url("https://i.imgur.com/rpSQgsn.png");
+    }
+
+    LI.txtli,
+    .txtli LI {
+      list-style: none;
+      position: relative;
+      left: -1em;
+    }
+
+    .fauxol {
+      display: inline-block;
+      width: 1.25em;
+    }
+
+    UL.intl LI,
+    LI.intl {
+      list-style-type: initial;
+      position: initial;
+      left: 0;
+    }
+
+    .body:not(.inner) {
+      padding: 16px 10px 0 10px;
+    }
+
+    .hl1 {
+      color: #0f0;
+    }
+
+    .hl2 {
+      color: #0ff;
+    }
+
+    .hl3 {
+      color: #ff0;
+    }
+
+    .hl4 {
+      color: #f0f;
+    }
+
+    .hl5 {
+      color: #f00;
+    }
+
+    .br {
+      margin-bottom: var(--brh);
+    }
+
+    .brh {
+      height: var(--brh);
+    }
+
+    .end:not(.inner) {
+      padding-bottom: 20px;
+    }
+
+    .nobr {
+      margin-top: 0;
+    }
+
+    H3.nobr {
+      margin-bottom: 0;
+    }
+
+    TD {
+      vertical-align: center;
+    }
+
+    .guide {
+      margin: 5px 0;
+      padding: 0;
+      width: 100%;
+      /*width of menu*/
+      border-bottom-width: 0;
+    }
+
+    .guide a.item.section,
+    .guide A.item.option:not(.msg) {
+      background-color: rgba(0, 0, 0, 0.7);
+    }
+
+    .guide a.item,
+    .guide a.option {
+      color: white;
+      display: block;
+      position: relative;
+      /*To help in the anchoring of the ".statusicon" icon image*/
+      width: auto;
+      padding: .01px;
+      padding-left: 10px;
+      text-decoration: none;
+    }
+
+    .guide a.item {
+      margin-top: 20px;
+    }
+
+    .guide a.option {
+      margin-top: 10px;
+    }
+
+    .guide a.option:first-child {
+      margin-top: 0;
+    }
+
+    .guide a.item:visited,
+    .guide a.option:visited,
+    .guide .item:active,
+    .guide .option:active {
+      color: white;
+    }
+
+    .guide a.item .statusicon {
+      /*CSS for icon image that gets dynamically added to headers*/
+      /* position: absolute;
+      top: 5px;
+      right: 5px;
+      border: none; */
+      display: none;
+      /* I don't need this, but I can't figure out how to remove it so it disappears instead. -- Hebgbs */
+    }
+
+    /*DIVs that contains each sub menu*/
+    .guide div.ins {
+      background: rgba(51, 51, 51, 0.5);
+    }
+
+    .guide div.nestins {
+      background: linear-gradient(to bottom, rgba(51, 51, 51, 0.5), rgba(51, 51, 51, 0.5)),
+        url(https://rawgit.com/dw-hb/global/img/dandy.png) no-repeat fixed center/cover;
+    }
+    </style>
+  </head>
+
+  <body>
+    <h1 class="ctr">
+      <p>How to purpose QR codes in Dandelion Way</p><small>A less convenient, but less <i>risky</i> way to free games.</small>
+    </h1>
+    <div class="guide">
+      <div class="busy msg bdr br ctr">
+        <h2>As further research is done, methods described will be modified so check back every so often!</h2>
+      </div>
+      <a class="item section">
+        <h2 class="ctr">Requirements for access</h2>
+      </a>
+      <div class="ins">
+	    <div class="body end">
+          <p class="br">The three requirements for being able to purpose the QR codes shown in cia-files🎮 is relatively simple;</p>
+          <ul class="br">
+            <li>Be in Dandelion Way</li>
+            <li>Have a modded console</li>
+            <li>Know how to purpose them</li>
+          </ul>
+          <p class="br">It is already assumed, if you have gained access to cia-files🎮 you satisfy the first two requirements. The last of which is what this guide will teach you to do.</p>
+		  <h3>What <i>are</i> QR codes, exactly?</h3>
+		  <p class="br">Originally a matrix barcode standard created in 1994 for Japan's automotive industry, it has seen prevalence worldwide due to its capacity to store a lot of information in not a lot fo space. Because of this, and because as images, barcodes are generally considered safe to use in data exchanges (as they are only images after all) it is the standard we use in Dandelion Way as a means of distributing game images packed as CIA files.</p>
+		  <p>Mind, that doesn't mean the QQR coe is for the whole game; These codes are foe file locations where you can receive a title; these codes to not give the full game, only a reference to it. Once received, it can then be installed using FBI in your 3DS, or it can be received directly through FBI per recent updates.</p>
+        </div>
+	  </div>
+      <a class="item section" id="title2">
+        <h2 class="ctr">How to use</h2>
+      </a>
+      <div class="ins">
+        <div class="body end">
+          <p>There are a variety of ways to handle this, so let's go over methods for scanning and receiving one step at a time;</p>
+		  <h3>Purposing QR codes</h3>
+		  <p>There are several options for doing just that, with the easiest of the methods shown first;</p>
+		  <ol style="list-style-type: lower-latin;">
+		    <li><b><u class="br">Using your console</u></b><p>Via FBI, you can select the option <i>Remote Install</i>, then select <i>Scan QR code</i> to acquire a title, but it requires your Internet connection last long enough or possess enough data to handle receiving the data. This is best done with a high-capacity or unlimited plan, or via a connection you know won't be penalized for its use.</p></li>
+			<li><b><u class="br">Using a web service</u></b><p>Various web services exist which allow you to right-click (or control-click) a QR code, as they are just pictures to most utilities, though web services will convert the data the image contains into a web address you can then access through your web browser.</p></li>
+			<li><b><u class="br">Using a mobile handset camera</u></b><p>The rear-ward facing camera on most mobile handsets ("Smartphones") usually work pretty well for this task, with a multitude of applications designed to scan various codes. <i>However</i> the problem with that is sometimes the camera sensor receives too much light, thus the image ebcomes blown out and unusable. The one primary advantage of this method is it's more socially-acceptable to whip out your phone rather than your 3DS, and some code scanning apps may also have a decode history you can scroll through to download on-the-go or using another Internet connection.</p></li>
+		  </ol>
+		  <h3>Transferring contents to your console's external storage</h3>
+		  <p>If you cannot use your console to scan the code, then you <i>will</i> have to do this. there are a few ways this can be done;</p>
+		  <ol style="list-style-type: lower-latin;">
+		    <li><b><u class="br">Using a device's internal (micro) SD card interface</u></b><p>If you use a new 3DS or old 3DS with a microSD card adapter, you can use just about anything with a microSD card interface, however if you are using a full-size SD card in your old 3DS, your options are limited to tablets and desktop PCs with a full-size SD card interface. This is the fastest way to transfer an image, however you also need to be around the device you are using for this to work.</p></li>
+			<li><b><u class="br">Using an external interface</u></b><p>If your smartphone lacks an SD card interface <i>but</i> so happens to have USB on-the-go support, you can use USB OTG adapters to transfer data onto a (micro)SD card. Some laptops are also not including SD card interfaces so if your PC was not made during SecureDisk's golden era where it  reigned supreme over compact flash and was standard functionality, you will need to use a USB host controller on-board or externally via ExpressCard<sup>*</sup> to transfer CIA images to your console's SD card.</p><p><small>Yes, I know ExpressCard isn't even standard anymore, this information was included for completeness, and there may also be SD card adapters for older laptops with the ExpressCard interface, thus making the USB interface not necessary.</small></p></li>
+			<li><b><u class="br">Via File Transfer Protocol</u></b><p>Once modified, a console's external storage can be manipulated via FTP, rather than CIFS which Microsoft depreciated so long ago. If you can use microSD Management on a new 3DS, <i>go for it</i> but if not because your system disallows it, or you don't have a system which even offers that as an option then you will need an FTP client, such as FileZilla (for lack of other cross-system compatible examples) and an FTP server on your 3DS, such as FTPD.</p></li>
+		  </ol>
+		  <h3>Installing the game</h3>
+		  <p class="br">This is fairly simple, and both options can be done via FBI;</p>
+		  <ol>
+		    <li><b><u class="br">Remote install</u></b><p>If you chose to scan a QR code, you're already set; once received, FBI will install the game via its CIA image for you.</p>
+			<li><b><u class="br">From external storage</u></b><p>If you had to use a separate device so the CIA file can be put onto the 3DS' external storage, then selecting the <i>SD</i> option will allow yout o install a CIA file. It does not matter where the image is, so long you are able to find it. You can even put a whole bunch of images onto an SD card and use the <i>&lt;Current directory&gt;</i> option to install them all at once; so long a CIA image is in there, options for handling CIA images are presented.</p>
+		  </ol>
+        </div>
+      </div>
+	  
+      <a class="item section" id="title3">
+        <h2 class="ctr">How to generate</h2>
+      </a>
+      <div class="ins">
+        <div class="body">
+          <p>Have a game you'd like to share? Want to make it easier for your peers to receive? FOllow these steps first;</p>
+		  <ul class="br">
+		    <li>Find a game you want to share</li>
+			<li>Click through whatever for-profit shorteners are used</li>
+			<li>Right-click on a file's download button and copy its link.</li>
+		  </ul>
+          <p class="br">If you cannot share a game directly, feel free to re-upload it! Once you have a URL which is a direct link to the CIA file, you can then codify it using a QR code generator of your choice, however, there are several rules regarding it;</p>
+		  <ol class="br">
+		    <li>Avoid fancy effects; keep 'em plain</li>
+			<li>Do not attempt to personalize with your present avatar, 2D game icon or game logo</li>
+			<li>Do not make them dynamic; there's no need to add another layer of obscurity</li>
+		  </ol>
+		  <p>Once you have your QR code, you might notice it's a bit large around the edges; this is a "Safe zone" that allows you to put a digital camera's viewfinder in place while taking a picture for decoding, however as some websites had proven previously it doesn't need to be so big, so to shrink it up use a utility like the GNU Image Manipulation Program.</p>
+		  <h3>Generation parameters</h3>
+		  <p>For legibility, the QR code should have low error tolerance (as these are not being printed) and rendered at a medium size. Any larger and they would take up <i>far</i> too much space, any higher error correction will yield a more dense image; larger in size, but occupying the same space which may make scanning more difficult.</p>
+		  </div>
+		  <a class="item option info msg ctr">
+            <h3>Expand this for other considerations to improve your submissions</h3>
+          </a>
+          <div class="nestins">
+            <div class="info msg end">
+		    <h3 class="nobr">Touching up in GIMP</h3>
+			<p class="br">
+              <!--Break for consistency.-->
+            </p>
+		    <p class="br">This is very simple to do for even novice users of the program to figure out on their own, but with GIMP (or GIMP portable) installed you can do the following;</p>
+			<ol class="br">
+		      <li>Zoom in and measure one of the blocks with box select</li>
+			  <li>Measure again, this time from the outer edge of the image to the outer edge of the QR data</li>
+			  <li>Subtract from the outer border measure the block measure</li>
+			  <li>Use box select to select all, or invoke select all with pressing <code>A</code> while holding <code>[Ctrl]</code></li>
+			  <li>From the <i>Select</i> menu, choose to shrink selection</li>
+			  <li>Shrink with the sum received from the subtraction equated (and maybe multiply by two, whatever you like)</li>
+			  <li>Cut the selection, then paste as a new image by pressing <code>V</code> while holding <code>[Shift]</code> and <code>[Ctrl]</code></li>
+			  <li><i>Export</i> the image, as a format Discord accepts</li>
+		    </ol>
+		    <p>Sound complicated? It's not, really; If the gap on all sides is 22px, and the block size is 5px, you can then shrink the selection by 17px and shrink the code by 34px on all sides. This effort not only saves on space, but also saves on disk space when storing them en masse.</p>
+		    <h3>Other space-saving measures</h3>
+		    <p class="br">If you'd like to store a whole bunch of these, there are other space-saving measures you can take while editing the image which may be worthwhile, potentially shrinking the file size to below 1 megabyte each;</p>
+		    <ul class="br">
+		      <li>Changing the image mode from RGB to indexed, 1-bit</li>
+			  <li>Enabling <i>none</i> of the options in PNG format</li>
+			  <li>JPEG compression may also help if you crank that up to max</li>
+			  <li>(2.10 only) Saving as 8bpc GRAY and <i>not</i> saving extra data with the image</li>
+		    </ul>
+		    <p>All of this effort means if in the future you want to share any of these images with friends on other platforms, or if you are just hoarding these reference links to other games for yourself you can save a whole bunch of space over time with following the above advice.</p>
+          </div>
+        </div>
+		
+		<div class="body end">
+		  <h3 class="nobr">Sharing the code(s)</h3>
+		  <p class="br">
+          <!--Break for consistency.-->
+          </p>
+		  <p>When sharing your QR code in Discord, if you only have one then you can just paste from the clipboard of whatever page or program you copied the image from and append it with the following text in the image sharing dialogue;</p>
+		  <p class="br"><code>**$TITLE ($R)**</code></p>
+		  <P>If whatever title you are sharing has updates and DLC, it is recommended to share those in Discord for Mobile, as multiple images shared there will show as one big post for an end-user on the desktop version. This is also important for quality-of-life improvements shown in the next section. When sharing through mobile use the following for message input:</p>
+		  <p class="br"><code>**$TITLE ($R; $FILE1, $FILE2, $FILE3)**</code></p>
+		  <p class="br">Fill in the following information by adjusting the variables as shown;</p>
+		  <ul class="txtli br">
+		    <li><code>$TITLE</code>: Name of the title you are sharing</li>
+			<li><code>$R</code>: Title's region (USA, EUR, JPN)</li>
+			<li><code>$FILE1</code>: The title itself (usually the only image)</li>
+			<li><code>$FILE2</code>: The title's secondary content (Usually an update)</li>
+			<li><code>$FILE3</code>: The title's tertiary content (usually DLC)</li>
+		  </ul>
+		  <p class="br">If you are using Discord for mobile and (transferred your) saved images to your mobile, then using your handset's file manager (if applicable) to rename the images can help influence sharing order. From what has been observed, Discord will always share files with the highest number first in its name, so to brute-force the share order you can rename as shown;</p>
+		  <ul class="txtli br">
+		    <li><code>titleGame.02.png</code></li>
+		    <li><code>titleUpd.01.png</code></li>
+		    <li><code>titleDLC.00.png</code></li>
+		  </ul>
+		  <P>Using the above advice, your contribution will not need modification for it to exist comfortably.</p>
+		</div>
+	  </div>
+      <a class="item section" id="title3">
+        <h2 class="ctr">Improvements via custom CSS</h2>
+      </a>
+      <div class="ins">
+        <div class="body">
+          <p class="br">As cool as Discord is, for our purposes it kind of sucks. There are ways you can make it better, through the use of custom CSS code installed via third-party software for the desktop client, or an addon for your web browser when using Discord for web. The below examples had been tested with BetterDiscord by Jiiks, via the Bandaged BetterDiscord fork by Zerebos.</p>
+		</div>
+		<div class="warn msg">The below solutions are not ideal and were lazily coded, therefore these solutions may impact performance of the Discord client, though whatever negative impact on performance should be minimal.</div>
+		<div class="body end">
+		  <h3 class="nobr">Change orientation of image flow</h3>
+		  <p class="br">
+            <!--Break for consistency.-->
+          </p>
+		  <p>The code below will change the flex flow of multi-image posts from vertical to horizontal, using padding and margin adjustments to integrate it seamlessly into Discord's default appearance.</p>
+		    <div class="inset">
+		      <pre>/* Make multi-image posts not suck */
+[class*="containerCozy-"] [class*="container-"],
+[class*="containerCompact-"] [class*="container-"]{
+    flex-direction: row !important;
+    flex-wrap: wrap;
+}
+[class*="contentCozy-"] [class*="containerCozy-"]:not(:first-child){
+    position: relative !Important;
+    left: -5px !important;
+}
+[class*="containerCompact-"][class*="container-"]:nth-child(2) {
+    padding-left: 84px !Important;
+}
+[class*="containerCozy-"] [class*="container-"] A[class*="imageWrapper-"],
+[class*="containerCompact-"] [class*="container-"] A[class*="imageWrapper-"]{
+    padding-left: 5px !important;
+    padding-right: 5px !important;
+}
+</pre>
+          </div>
+		<h3>Make codes easier to read</h3>
+		<p>Sometimes your display sucks. Sometimes your mobile device's camera is trash. Either way the below code should fix that by making image modal popups (what you see when you click on an image) appear darker, which when combined with reduced brightness or less light / display glare can allow for use of the codes.</p>
+		  <div class="inset">
+		    <pre>/* Make QR codes readable on some mobile devices */
+[class*="backdrop"] {
+    opacity: 1 !important;
+}
+[class*="modal"] IMG:not(:hover) {
+    filter: brightness(0.25);
+    transition: filter 0.20s ease;
+}
+[class*="modal"] IMG:hover {
+    transition: filter 0.20s ease;
+}</pre>
+		  </div>
+		</div>
+      </div>
+      <a class="item section" id="title4">
+        <h2>Delete or modify everything after this. DO NOT FORGET.</h2>
+      </a>
+      <div class="ins">
+        <div class="warn msg bdr">None of these steps are of any use without your <code>movable.sed</code>. Acquire it from Bruteforce Movable or make it yourself in seedminer (see <a href="https://rawgit.com/dw-hb/3dscfw/guide/fancy.html?section=3#title3">section 3</a>).</div>
+        <div class="body end">
+          <p>These series of steps are necessary for producing your CFW entrypoint. Without it, the additional software on your SD card is rendered useless.</p>
+          <h2>At your computer</h2>
+          <ol>
+            <li><a href="https://jenkins.nelthorya.net/job/DSIHaxInjector/build?delay=0sec">Go to this website to build your patched bin.</a></li>
+            <li>The fields shown refer to the following: <ul>
+            </li>
+            <li>Unique identifier for the patched <code>.bin</code> file.</li>
+            <li>Region of your console (usually shown on your console).</li>
+            <li>Location of your copied DSiWare <code>.bin</code>.</li>
+            <li>Location of your <code>movable.sed</code>.</li>
+            <li>You can skip E-Mail: Build will not take long.</li>
+            </ul>
+            </li>
+            <li>Hit the big blue <b>Build</b> button and watch the left side for your build to complete. <ul>
+                <li class="txtli">🔵 means build completed with a usable artifact.</li>
+                <li class="txtli">🔴 means the <code>movable.sed</code> or <code>.bin</code> file was bad and needs to be remade.</li>
+              </ul>
+            </li>
+            <li>If you see your build is successful, click it and download the artifact made onto your SD card in <code>Nintendo DSiWare</code>.</li>
+            <li>Rename, move or delete the the original, untouched <code>.bin</code> file.</li>
+            <li>Rename the <code>.patched</code> file so it ends in <code>.bin</code> instead. <ul>
+                <li>The previous three steps are intended to overwrite your game with a modified copy which launches b9stool.</li>
+              </ul>
+            </li>
+            <li><i>Properly</i> eject the SD card from your PC and put it in the console.</li>
+          </ol>
+          <h2>At your console</h2>
+          <ol>
+            <li>Open System Settings, Data Management, DSiWare.</li>
+            <li>In the SD Card tab, choose to copy the patched bin to System Memory. <i>Permit this operation in the following prompt.</i></li>
+            <li>When finished, exit to Home Menu and open the patched game.</li>
+          </ol>
+        </div>
+      </div>
+      <a class="item section" id="title5">
+        <h2>Section 5 — CFW installation</h2>
+      </a>
+      <div class="ins">
+        <a class="item option info msg ctr">
+          <h3>Expand for a final reminder about file arrangement.</h3>
+        </a>
+        <div class="nestins">
+          <div class="info msg bdr">
+            <p class="br">This ia a tree view of the files and directories given from <code>seedkit.zip</code> after they had been extracted, excluding <code>Nintendo 3DS</code> and other extraneous directories: If you do not have this archive, get it from <a href="https://rawgit.com/dw-hb/3dscfw/guide/fancy.html?section=2#title2">section 2</a>.</p>
+            <p class="br"><i>All operations shown later will <u>fail</u> if files from <code>seedkit.zip</code> are not arranged as shown <u>at the root directory of your SD card.</u></i></p>
+            <div class="inset">
+              <pre>[Your SD card]
+│   boot.3dsx
+│   boot.firm
+│   boot.nds
+│   boot9strap.firm
+│
+├───3ds
+│       FBI.3dsx
+│
+├───cias
+│       Anemone3DS.cia
+│       Checkpoint.cia
+│       DSP1.cia
+│       FBI.cia
+│       hblauncher_loader.cia
+│       lumaupdater.cia
+│
+├───gm9
+│   ├───scripts
+│   │       Backup EmuNAND.gm9
+│   │       Backup SysNAND.gm9
+│   │       cleanup_sd_card.gm9
+│   │       Restore EmuNAND.gm9
+│   │       Restore SysNAND (Full).gm9
+│   │       Restore SysNAND (Safe).gm9
+│   │       setup_ctrnand_luma3ds.gm9
+│   │
+│   └───support
+│           aeskeydb.bin.here
+│           encTitleKeys.bin.here
+│           seeddb.bin.here
+│
+└───luma
+    └───payloads
+GodMode9.firm</pre>
+            </div>
+          </div>
+        </div>
+        <div class="body">
+        </div>
+        <div class="good msg bdr br">If having followed instructions elsewhere which mandated creation of a <code>boot9strap</code> directory, you can delete that prior to extracting <code>seedkit.zip</code> because b9stool can use contents from SD card root.</div>
+        <div class="info msg bdr br">Instructions below shamelessly ripped off from <a href="https://jisagi.github.io/SeedminerGuide/injection/#section4">Jisagi's seedminer guide</a></div>
+        <div class="warn msg bdr">These instructions will fail without following <a href="https://rawgit.com/dw-hb/3dscfw/guide/fancy.html?section=4#title4">section 4</a>.</div>
+        <div class="body">
+          <h3 class="nobr">How to install Boot9Strap, Luma3DS and GodMode9</h3>
+          <p class="br">
+            <!--Break for consistency.-->
+          </p>
+          <ol class="nobr">
+            <li>Launch b9sTool by starting your DSiWare game <ul>
+                <li>It is alright if it loads SUDOKU, just proceed when allowed.</li>
+              </ul>
+            </li>
+            <li>Launch b9sTool by starting your DSiWare game.</li>
+            <li><span class="hl3">Select <code>Dump F0F1</code> to backup the 3DS FIRM.</span>
+              <ul>
+                <li>This is important; In the case Rosalina menu doesn't show in later steps you will want to restore firm0, which b9stool writes to.</li>
+              </ul>
+            </li>
+            <li>Select <code>Install boot9strap</code> and confirm.</li>
+            <li>Wait for it to say <code>done!</code>. Exit b9sTool and continue to Luma3DS configuration.<ul>
+                <li>If your 3DS reboots normally then boot9strap did not install correctly. Replace your prep files with freshly downloaded files and restore the F0F1 backup in b9sTool. <b>Do not create a new F0F1 backup!</b> Then try reinstalling boot9strap again.</li>
+                <li>You can return here later while the 3DS is turned off by holding <code>Select</code> whilepowering on.</li>
+              </ul>
+            </li>
+            <li>Use the <code>A</code> button and the D-pad to enable the following options: <ul>
+                <li><code>Splashes</code> (before or after payloads, for Anemone Theme Manager's splashes function).</li>
+                <li><code>Enable Game Patching</code> (for soft-patching via Luma3DS).</li>
+                <li><code>Show NAND or User String in System Settings</code> (to confirm CFW is loaded).</li>
+              </ul>
+            </li>
+            <li class="br">Press <code>Start</code> to save and reboot.<ul>
+                <li><b>Wait!</b> Hold on! If GodMode9 shows up instead of rebooting into the system, write <code>essential.exefs</code> (<span class="hl4">if you have the space</span>), fix the time and such, but <i>reboot</i> the 3DS when you are at GodMode9's file manager. Sometimes exiting Luma3DS config bugs out in a rather particular way which executes its payload instead of booting normally.</li>
+                <li><span class="hl4">If you have less than 1.4GB on your SD card</span>, then consult section 6 of this guide for information about SD card migration and (re)creating backup files. <b>Disregard section VII of the page linked below.</b></li>
+              </ul>
+            </li>
+          </ol>
+        </div>
+        <div class="warn msg bdr">At this point, <code>boot.firm</code> is required to exist on the SD card. Without it, <i>the console will not boot.</i> To resolve this, follow the instructions in the page linked below. </div>
+        <div class="body end">
+          <ol start="9">
+            <li><a href="https://3ds.hacks.guide/finalizing-setup#section-ii---updating-the-system"><b>Continue here to finish installing your CFW.</a></b>
+              <ul>
+                <li>You will be finished at section VIII of that page.</li>
+              </ul>
+            </li>
+            </li>
+          </ol>
+        </div>
+        <div class="good msg bdr">If you've completed what is shown here, including this section (and the finalizing setup page in 3ds.hacks.guide) then congratulations! You've completed this guide and need to do nothing else for enjoying the fruits of your labour. However, as many people enjoy a good bonus the two sections after this are for better utilizing the features of your custom firmware and expanding its functionality.</div>
+      </div>
+      <a class="item section" id="title6">
+        <h2>Section 6 — Other 3DS software</h2>
+      </a>
+      <div class="ins">
+        <div class="warn msg bdr br">Certain circles do not dare discuss piracy. As some places may ban you for talking about it, <span class="hl3">don't bring up freeShop.</span> <i>Ever.</i></div>
+        <div class="warn msg bdr hl3">Fiemware 11.8 breaks use of this tool! <u>Do not update from anything less</u> if you want to use freeShop!</div>
+        <div class="body end">
+          <p>There is some other cool software you can install via FBI's TitleDB menu. As there is no additional preparation necessary, This section should be fairly straight-forward, especially compared with the long-winded process which permits the installation of such software. When finished, you will have <b>FTPD</b> and <b>Freeshop</b> made available to you. There is a <b>lot</b> of other software via TitleDB but the two mentioned are what may be considered most useful for games, patches and remote interaction with the SD card.</p>
+        </div>
+        <div class="info msg bdr">If you only want one of the software shown below, follow instructions explicitly for that software only.</div>
+        <div class="body br">
+          <h2 class="nobr">Software installation</h2>
+          <ol>
+            <li>Open FBI, and navigate to <code>TitleDB</code>.<ul>
+                <li>To navigate through the list faster, left and right act as page up and page down respectively.</li>
+                <li>For multiple entries in TitleDB, the bottom-most one is usually the latest.</li>
+                <li>When prompted, FBI will provide two options for installation. As follows;<ul>
+                    <li class="txtli"><code>CIA</code>: Installs to system memory and creates a shortcut in Home Menu.</li>
+                    <li class="txtli"><code>3DSX</code>: installs to <code>3ds</code> on SD card, only accessible through the Homebrew Launcher.</li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+            <li>Scroll to the F's, select and download the following two applications:<ul>
+                <li class="txtli"><code>freeShop</code>
+                  <ul>
+                    <li class="intl">As <code>CIA</code> is the only option shown here, freeShop will install to system memory.</li>
+                  </ul>
+                </li>
+                <li class="txtli"><code>ftpd</code>
+                  <ul>
+                    <li class="intl">If you do not see <code>ftpd</code>, scroll to the S's, select and download <code>Super ftpd ii turbo</code>.</li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+            <li>Exit FBI and unwrap your gifts.</li>
+          </ol>
+          <h2>Freeshop configuration</h2>
+          <ol>
+            <li>Open Freeshop. <ul>
+                <li>As TitleDB installs 4.1.0 which was released around Halloween, Bernard Herrmann's <i>The Murder</i> score from Psycho plays instead of Freeshop's default splash music.</li>
+              </ul>
+            </li>
+            <li>After the change log, tap on the gear (⚙️) to access settings.</li>
+            <li>Select the <code>Update</code> tab and perform the following: <ol>
+                <li>Enable <code>Auto-update title keys from URL</code>.</li>
+                <li>Tap on the keyboard (⌨️) which becomes available.</li>
+                <li>Give the input box this address: <code class="hl3" ;>http://3ds.titlekeys.gq/downloadenc</code>.</li>
+              </ol>
+            </li>
+            <li>Once finished, select <code>Refresh Cache</code> and enjoy unfettered access to over 4000 games.</li>
+          </ol> Or, you can continue to look in settings at the following tabs: <ul>
+            <li class="txtli"><code>Filter</code>: Adjust what titles are displayed based on region, genre, language, origin platform and publisher. <ul>
+                <li>The <code>Feature</code> tab has nothing, and crashes the console. Don't bother.</li>
+              </ul>
+            </li>
+            <li class="txtli"><code>Sort</code>: Adjust how games are sorted by release date, name, size, rating or vote tally.</li>
+            <li class="txtli"><code>Inactivity</code>: Adjust which screens and features are disabled after a specified timeout.</li>
+          </ul>
+        </div>
+        <a class="item option info msg ctr">
+          <h3>Problems with adding title keys? Expand this.</h3>
+        </a>
+        <div class="nestins">
+          <div class="info msg end">
+            <p class="br">Because of ongoing issues with persons unable to use the QR code from <a href="http://3ds.titlekeys.gq">this repository</a> which hosts the domain shown above, an alternative for persons with no success following the above is to perform as shown:</p>
+            <ol class="br">
+              <li>If applicable, launch freeShop to generate necessary directories for operation.</li>
+              <li><a href="http://3ds.titlekeys.gq/downloadenc">Download <code>encTitleKeys.bin</code></a></li>
+              <li>Save <code class="hl3">encTitleKeys.bin</code> to the 3DS' SD card at <code>3ds/data/freeShop/keys</code>
+            </ol>
+            <p>When finished, you should be able to see the application load a game list and show available titles.</p>
+          </div>
+        </div>
+        <div class="body end">
+          <h2 class="nobr">Wireless transfer via FTP</h2>
+          <ol>
+            <li>Open your computer's FTP client. <ul>
+                <li>Don't have one? <a href="https://filezilla-project.org">Filezilla client</a> is a solid multi-platform choice.</li>
+                <li>If you are forced to use a less capable device such as a Smartphone, the Android platform has various FTP utilities as well. One I recommend is ES File Explorer, which makes FTP navigation a cakewalk on mobile.</li>
+              </ul>
+            </li>
+            <li>Open FTPD on the 3DS.</li>
+            <li>At the top of the screen, IP and port are shown. As follows, this information is used in the two fields on Filezilla: <ul>
+                <li>IP address goes into the<b>Host</b> field.</li>
+                <li>Port goes into the<b>Port</b> field (with FTPD's default being <code>5000</code>).</li>
+              </ul>
+            </li>
+            <li>To exit after file transfers had completed, press <code>B</code> twice.</li>
+          </ol>
+        </div>
+      </div>
+      <a class="item section" id="title7">
+        <h2>Section 7 — MIgration and backup</h2>
+      </a>
+      <div class="ins">
+        <div class="body end">
+          <p>[Critical error: 11.8 has been released, this section to be finished later.]</p>
+          <p>[Include information about how to create <code>essential.exefs</code> in GodMode9.]</p>
+        </div>
+      </div>
+      <a class="item section" id="title8">
+        <h2>Section 8 — 3DS operation from PC</h2>
+      </a>
+      <div class="ins">
+        <div class="warn msg bdr br">Input redirection features, until otherwise rectified is easily installable for Windows machines only.</div>
+        <div class="warn msg bdr br">As video casting is processor-intensive, BootNTR for this purpose is only suitable for "new" consoles.</div>
+        <div class="info msg bdr">While Snickerstream is only compiled for Windows, it should run well in Wine.</div>
+        <div class="body">
+          <p>If you ever imagined about using your 3DS on your PC, well... <b>you can.</b> The overgrown asterisk in the room is the difference in processing power between consoles. If you are in possession of Nintendo's later "new" consoles you can do everything shown here. Else all you can do is use another controller attached to your PC, which may be beneficial for persons who dislike the 3DS' (lack of) ergonomics but still want to enjoy their titles.</p>
+          <h2>Knowing the console's IP</h2>
+          <p>As follows, perform these steps to enable reception of remote inputs and reveal the console's IP address:</p>
+          <ol>
+            <li>Hold <code>L</code> and <code>Down</code> while pressing <code>Select</code> to cue Luma3DS' Rosalina menu. <ul>
+                <li>If you had changed this key combination since, use whatever it was you assigned it to.</li>
+              </ul>
+            </li>
+            <li>Select <code>Miscellaneous options</code>.</li>
+            <li>Se;ect <code>Start InputRedirection</code>.</li>
+            <li>Press <code>B</code> to back out until you see the console's IP address.</li>
+          </ol>
+          <p>With the IP address noted, you can begin installing utilities on the PC which can utilize this information to connect with the console.</p>
+          <h2>Acquiring software for remote operation</h2>
+        </div>
+        <div class="info msg bdr">Both devices needs to be on the same network for any network-based utilities to function.</div>
+        <div class="body">
+          <ol>
+            <li><a href="https://github.com/TuxSH/InputRedirectionClient-Qt/releases">Download the latest version of Input Redirection Client.</a></li>
+            <li><a href="https://github.com/RattletraPM/Snickerstream/releases">Download the latest version of Snickerstream.</a></li>
+            <li><a href="https://github.com/Nanquitas/BootNTR/releases">Either version of BootNTR Selector from here.</a>
+              <ul>
+                <li><i>Not <code>Mode3</code>, nor the <code>.3dsx</code> file.</i></li>
+                <li>Banner doesn't matter; they're both rocketships. FONZD is a long spacecraft while PabloMK7 is a rocket pod.</li>
+              </ul>
+            </li>
+          </ol>
+          <h2>Installing acquired software</h2>
+          <ol>
+            <li>Extract archives for Input Redirection Client and Snickerstream to somewhere memorable. <ul>
+                <li>For tidiness, the suite of files from this archive should be in their own directory.</li>
+              </ul>
+            </li>
+            <li>Transfer the <code>.cia</code> file into the 3DS' SD card. <ul>
+                <li>Had you set this up earlier, you can use FTP should SMB via the native microSD Management feature be of no use.</li>
+                <li>The cleanup script ran during installation of CFW will had deleted the <code>cias</code> directory; FBI can install from anywhere.</li>
+              </ul>
+            </li>
+            <li>Open FBI. <li>Select <code>SD</code>, then find the CIA file there.</li>
+              <li>After installing it, exit FBI and unwrap your gift.</li>
+          </ol>
+          <h2>Configuring and use of installed software</h2>
+          <h3>Input Redirection</h3>
+          <ol class="br">
+            <li>Open Input Redirection Client.</li>
+            <li>Enable Input Redirection on the 3DS.</li>
+            <li>Give it your console's IP address. <ul>
+                <li>If you prefer button placement to match the console, enable the boxes for inverting the face buttons.</li>
+              </ul>
+            </li>
+          </ol>
+        </div>
+        <a class="item option good msg ctr">
+          <h3>No XInput controller? No problem! Expand to see why.</h3>
+        </a>
+        <div class="nestins">
+          <div class="good msg end">
+            <p class="br">If you lack an XInput-compatible controller such as those for Xbox 360 or Xbox One to use with the redirection client shown above, you're in luck; there exists software which can make <i>any</i> controller compatible.</p>
+            <ol>
+              <li><a href="https://www.x360ce.com/">Download the 32-bit version of DacoTaco's Xbox 360 controller emulator</a> (hereon: <i>x360ce</i>).</li>
+              <li>Extract, then run the software where it had been extracted. <ul>
+                  <li>You can also extract x360ce into the directory whose program you want to use it with.</li>
+                </ul>
+              </li>
+              <li>Open x360ce, then permit it to find a functional preset for your controller. </ul>
+                <li>If that doesn't work straight away, end its task, then select <code>Auto</code> in the General tab.</li>
+                <li>Alternatively, look in the Controller Settings tab to find a functional preset matching your hardware.</li>
+                </ul>
+              </li>
+              <li><i>If applicable</i>, copy files <code>x360ce.ini</code> and <code>xinput1_3.dll</code> where <code>InputReciredtionClient-Qt.exe</code> is.</li>
+              <li>Rename <code>xinput1_3.dll</code> to <code>xinput1_4.exe</code>. <ul>
+                  <li>Alternatively, create a hardlink for <code>xinput1_3.dll</code> named <code>xinput1_4.dll</code> if the software resides on an NTFS partition.</li>
+                </ul>
+              </li>
+              <li>Run <code>InputRedirectionClient-Qt.exe</code>. If successful, you should hear a tone to confirm x360ce is emulating XInput.</li>
+            </ol>
+          </div>
+        </div>
+        <div class="body">
+          <h3 class="nobr">Video casting</h3>
+          <p class="br">
+            <!--Break for consistency.-->
+          </p>
+        </div>
+        <div class="warn msg bdr br">Some items may simply not work, and launching certain titles while casting may crash the console.</div>
+        <div class="info msg bdr">Crashes will not permanently disable the console; simply hold down the power button until the lights go out and power it back on.</div>
+        <div class="body end">
+          <ol>
+            <li>On the 3DS, open BootNTR selector.</li>
+            <li>Go along with default everything, and select version 3.6.</li>
+            <li>Return to home menu.</li>
+            <li>Launch Snickerstream. <ul>
+                <li>In doing this, a new <code>settings.ini</code> file is made where the executable exists. These settings may be of interest: <ul>
+                    <li class="txtli"><code>IpAddr</code>: The default console IP address Snickerstream will look for.</li>
+                    <li class="txtli"><code>Framelimit</code>: Add this in a new line to specify the maximum number of casted frames.</li>
+                    <li><code>notepad.exe</code> cannot read the line breaks in this file, use an alternative editor such as <a href="https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=1&cad=rja&uact=8&ved=2ahUKEwi78ZPm-PvaAhVr4oMKHXzaAMgQFjAAegQIABAq&url=https%3A%2F%2Fnotepad-plus-plus.org%2F&usg=AOvVaw0iXSCYMB4lh5GlGEAEs2Jd">Notepad++</a>.
+                  </ul>
+                </li>
+              </ul>
+            </li>
+            <li>Give Snickerstream the console's IP address. (It's the same one you give to Input Redirection Client.) <li>In the Preset section, specify <i>Best framerate</i> to test, initially.</li>
+              <li>Choose to connect; If it worked, scale video with <code>[Up]</code> and <code>[Down]</code> on the keyboard.</li>
+              <li>When finished streaming, press <code>[Esc]</code> to exit.</li>
+          </ol>
+        </div>
+        <div class="info msg bdr br">Some better Snickerstream instructions may be provided in the future. Sorry I can't help any greater than this: I only have an old 3DS but I've seen it in action so I know it works for some people.</div>
+        <div class="good msg bdr">If you've read this far, thank you for your time. If this guide had failed to assist you in any way, forward whatever concerns to whoever sent this to you. If you have a Github account and a desire to append further onto this, then by all means make modifications and contribute!</div>
+      </div>
+    </div> <br> <small class="ctr">
+      <p>Accordion script by Dynamic Drive.</p>
+      <p>Guide by Heebeejeebees.</p>
+      <p>Background image by Catty Kitty Designs.</p>
+    </small>
+  </body>
+
+</html>
