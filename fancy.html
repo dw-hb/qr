@@ -7,7 +7,7 @@
     <meta charset="utf-8">
     <link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700|PT+Sans:400,400i,700,700i&amp;subset=latin-ext" rel="stylesheet">
     <link href="https://rawgit.com/Hebgbs/plugthemes/master/fonts/MyraidPro.css" rel="stylesheet">
-	<link href="https://rawgit.com/dw-hb/global/css/hl_styles/default.css" rel="stylesheet">
+	<link href="https://rawgit.com/dw-hb/global/css/hl_styles/zenburn-custom.css" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js">/* JQuery */</script>
 	<script src="https://rawgit.com/dw-hb/global/js/highlight.pack.js">/* HighlightJS */</script>
@@ -516,7 +516,7 @@
           </p>
 		  <p>The code below will change the flex flow of multi-image posts from vertical to horizontal, using padding and margin adjustments to integrate it seamlessly into Discord's default appearance.</p>
 		    <div class="inset">
-		      <pre>/* Make multi-image posts not suck */
+		      <pre><code>/* Make multi-image posts not suck */
 [class*="containerCozy-"] [class*="container-"],
 [class*="containerCompact-"] [class*="container-"]{
     flex-direction: row !important;
@@ -534,12 +534,12 @@
     padding-left: 5px !important;
     padding-right: 5px !important;
 }
-</pre>
+</code></pre>
           </div>
 		<h3>Make codes easier to read</h3>
 		<p>Sometimes your display sucks. Sometimes your mobile device's camera is trash. Either way the below code should fix that by making image modal popups (what you see when you click on an image) appear darker, which when combined with reduced brightness or less light / display glare can allow for use of the codes.</p>
 		  <div class="inset">
-		    <pre>/* Make QR codes readable on some mobile devices */
+		    <pre><code>/* Make QR codes readable on some mobile devices */
 [class*="backdrop"] {
     opacity: 1 !important;
 }
@@ -549,7 +549,7 @@
 }
 [class*="modal"] IMG:hover {
     transition: filter 0.20s ease;
-}</pre>
+}</code></pre>
 		  </div>
 		</div>
       </div>
